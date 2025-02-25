@@ -1,68 +1,50 @@
 /* Reset */
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 * {
   margin: 0;
   padding: 0;
   font-style: normal;
   line-height: normal;
-  text-decoration: none;
-}
-
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+  box-sizing: border-box;
+  text-wrap: pretty;
   overflow-wrap: break-word;
 }
-
-p {
-  text-wrap: pretty;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  text-wrap: balance;
-}
-
 /* Start */
+
+:root {
+  --White: #fff0fc;
+  --Wenge: #332e2d;
+  --Light: #ffe9fa;
+  --Thistle: #ddcad9;
+  --Rose-Ebony: #503d3f;
+  --Pink-Lavender: #d1b1cb;
+  --Lighter-Guy: #807271;
+  --Code-BG: rgba(128, 114, 113, 0.28);
+}
 
 html,
 body {
   font-family: outfit, sans-serif;
-  background: var(--Wenge, #332e2d);
+  background: var(--Wenge);
 }
 
-#navbar header, {
+#navbar header {
   font-size: 3rem;
   font-weight: 700;
   line-height: 101.178%;
   padding: 2rem;
-  color: var(--White, #fff0fc);
-  overflow: auto;
+  color: var(--White);
 }
 
 #main-doc header {
   font-size: 2rem;
   font-weight: 600;
-  color: var(--Light, #ffe9fa);
+  color: var(--Light);
 }
 
 p,
 li {
-  color: var(--Thistle, #ddcad9);
+  color: var(--Thistle);
   font-size: 1.25rem;
   font-weight: 400;
   max-width: 38.875rem;
@@ -75,13 +57,13 @@ li {
 
 #navbar {
   position: fixed;
-  min-width: 20rem;
-  top: 0;
-  left: 0;
+  top: 0px;
+  left: 0px;
   width: 20.125rem;
   height: 100%;
-  border-right: 3px solid var(--Thistle, #ddcad9);
-  background: var(--Rose-Ebony, #503d3f);
+  border-right: 3px solid var(--Thistle);
+  background: var(--Rose-Ebony);
+  overflow: auto;
 }
 
 #main-doc {
@@ -92,28 +74,28 @@ li {
 .nav-link {
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--White, #fff0fc);
+  color: var(--White);
   display: block;
-  border: 3px solid var(--Thistle, #ddcad9);
+  border: 3px solid var(--Thistle);
   border-left: none;
   border-right: none;
   padding: 1rem;
   border-bottom: solid 1px;
-  
+  text-decoration: none;
 }
 
 .nav-link:hover {
-  background-color: var(--Wenge, #332e2d);
+  background-color: var(--Wenge);
   transition: 0.1s ease;
 }
 .nav-link:active {
-  background-color: var(--Thistle, #ddcad9);
-  color: var(--Rose-Ebony, #503d3f);
+  background-color: var(--Thistle);
+  color: var(--Rose-Ebony);
   transition: 0.1s ease;
 }
 
 .divider {
-  border-bottom: 2px solid var(--Pink-Lavender, #d1b1cb);
+  border-bottom: 2px solid var(--Pink-Lavender);
   max-width: 38.875rem;
   margin: 2.75rem 0;
 }
@@ -122,8 +104,8 @@ li {
   font-family: "Fira Code";
   font-size: 0.9375rem;
   font-weight: 400;
-  border: 1px solid var(--Lighter-Guy, #807271);
-  background: var(--Code-BG, rgba(128, 114, 113, 0.28));
+  border: 1px solid var(--Lighter-Guy);
+  background: var(--Code-BG);
   max-width: 61.5rem;
   padding: 1.62rem;
   margin-top: 1rem;
@@ -131,12 +113,13 @@ li {
 }
 
 @media (max-width: 700px) {
-   #navbar {
+  #navbar {
     top: 0;
     left: 0;
     width: 100%;
     height: 10rem;
-    border-bottom: 3px solid var(--Thistle, #ddcad9);
+    border-right: none;
+    border-bottom: 3px solid var(--Thistle);
     z-index: 9999;
   }
 
