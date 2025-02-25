@@ -1,0 +1,149 @@
+/* Reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-style: normal;
+  line-height: normal;
+}
+
+  -webkit-font-smoothing: antialiased;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/* Start */
+
+html,
+body {
+  font-family: outfit, sans-serif;
+  background: var(--Wenge, #332e2d);
+}
+
+#navbar header {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 101.178%;
+  padding: 2rem;
+  color: var(--White, #fff0fc);
+}
+
+#main-doc header {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--Light, #ffe9fa);
+}
+
+p,
+li {
+  color: var(--Thistle, #ddcad9);
+  font-size: 1.25rem;
+  font-weight: 400;
+  max-width: 38.875rem;
+  margin-bottom: 1rem;
+}
+
+li {
+  margin-left: 1.5rem;
+}
+
+#navbar {
+  position: fixed;
+  min-width: 20rem;
+  top: 0px;
+  left: 0px;
+  width: 20.125rem;
+  height: 100%;
+  border-right: 3px solid var(--Thistle, #ddcad9);
+  background: var(--Rose-Ebony, #503d3f);
+}
+
+#main-doc {
+  margin-left: 21rem;
+  padding: 4rem;
+  max-width: 100%;
+}
+.nav-link {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--White, #fff0fc);
+  display: block;
+  border: 3px solid var(--Thistle, #ddcad9);
+  padding: 1rem;
+  border-bottom: solid 1px;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  background-color: var(--Wenge, #332e2d);
+  transition: 0.1s ease;
+}
+.nav-link:active {
+  background-color: var(--Thistle, #ddcad9);
+  color: var(--Rose-Ebony, #503d3f);
+  transition: 0.1s ease;
+}
+
+.divider {
+  border-bottom: 2px solid var(--Pink-Lavender, #d1b1cb);
+  max-width: 38.875rem;
+  margin: 2.75rem 0;
+}
+.code {
+  color: #fff;
+  font-family: "Fira Code";
+  font-size: 0.9375rem;
+  font-weight: 400;
+  border: 1px solid var(--Lighter-Guy, #807271);
+  background: var(--Code-BG, rgba(128, 114, 113, 0.28));
+  max-width: 61.5rem;
+  padding: 1.62rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 700px) {
+   #navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10rem;
+    overflow: auto;
+    border-right: none;
+    border-bottom: 3px solid var(--Thistle, #ddcad9);
+    z-index: 9999;
+  }
+
+  #main-doc {
+    margin-left: 0;
+    margin-top: 11rem;
+    padding: 2rem;
+}

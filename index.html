@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DCI Scoring System Documentatione</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/IWS-Favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/IWS-Favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/IWS-Favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/IWS-Favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="IWS" />
+  <link rel="manifest" href="/IWS-Favicon/site.webmanifest" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <nav id="navbar">
+    <header>DCI SCORNG SYSTEM</header>
+    <a class="nav-link" href="#Overview">Overview</a>
+    <a class="nav-link" href="#Scoring_Breakdown">Scoring Breakdown</a>
+    <a class="nav-link" href="#General_Effect_Scoring">General Effect Scoring</a>
+    <a class="nav-link" href="#Visual_Scoring">Visual Scoring</a>
+    <a class="nav-link" href="#Music_Scoring">Music Scoring</a>
+    <a class="nav-link" href="#Calculation_Formula">Calculation Formula</a>
+    <a class="nav-link" href="#Penalties_&_Deductions">Penalties & Deductions</a>
+    <a class="nav-link" href="#Prop_Implementation">Prop Implementation</a>
+    <a class="nav-link" href="#Ranking_&_Tie-Breakers">Ranking & Tie-Breakers</a>
+    <a class="nav-link" href="#Score_Normalization">Score Normalization</a>
+    <a class="nav-link" href="#Caption_Awards">Caption Awards</a>
+    <a class="nav-link" href="#Data_&_Score_Logging">Data & Score Logging</a>
+    <a class="nav-link" href="#Historical_Trends">Historical Trends</a>
+    <a class="nav-link" href="#Successful_Strategies">Successful Strategies</a>
+  </nav>
+  <main id="main-doc">
+    <section class="main-section" id="Overview">
+      <header>Overview</header>
+      <p>Drum Corps International (DCI) is an organization that facilitates the competition of world class drum and bugle corps (essentially a really good marching band).</p>
+      <p>DCI employs a complex scoring system to evaluate performances.
+        This documentation details how scores are calculated across captions, penalties, ranking methods, and other implements.</p>
+      <div class="divider"></div>
+    </section>
+    <section class="main-section" id="Scoring_Breakdown">
+      <header>Scoring Breakdown</header>
+      <p>DCI scores are divided into multiple captions, each with subcaptions contributing to the overall score.</p>
+      <div class="code"><code>scoring_breakdown = {<br>
+          "General Effect": 40,<br>
+          "Visual": 30,<br>
+          "Music": 30<br>
+          }<br>
+          <br>
+          for caption, weight in scoring_breakdown.items():<br>
+          print(f"{caption}: {weight}%")
+        </code></div>
+      <p>As seen above, scoring is primarily influenced by General Effect, followed by Visual and Music.</p>
+      <div class="divider"></div>
+    </section>
+    <section class="main-section" id="General_Effect_Scoring">
+      <header>General Effect Scoring</header>
+      <p>General Effect (GE) is the most important caption in the activity. Here is how it is broken down:<br></p>
+      <ul class="bulletlist">
+        <li>GE is divided into two subcaptions with a judge assigned to each: General Effect Music and General Effect Visual.</li>
+        <li>Each judge assigns a score out of 20, totaling 40 points in this caption.</li>
+        <li>The focus is on artistry, design, coordination, and impact on the audience.</li>
+      </ul>
+      <div class="divider"></div>
+    </section>
+    <section class="main-section" id="Visual_Scoring">
+      <header>Visual Scoring</header>
+      <p>Visual performance is judged based on:<br></p>
+      <ol class="numberedlist">
+        <li>Visual Proficiency (20 points) – Execution and technique.</li>
+        <li>Visual Analysis (20 points) – Effectiveness of design.</li>
+        <li>Visual Analysis (20 points) – Effectiveness of design.</li>
+      </ol>
+      <p>Total visual score: 30 points (after averaging).</p>
+      <p>Strong coordination, precise execution, and expressive movement contribute to Visual scores. Another way to think about this is the difficulty of your movement versus your execution of that movement.</p>
+      <div class="divider"></div>
+    </section>
+    <section class="main-section" id="Music_Scoring">
+      <header>Music Scoring</header>
+      <p>Musical performance is judged based on:</p>
+      <ol class="numberedlist">
+        <li>Brass (20 points) – Tone, intonation, and execution.</li>
+        <li>Music Analysis (20 points) – Composition and effectiveness.</li>
+        <li>Percussion (20 points) – Integration with the ensemble,and overall performance.</li>
+      </ol>
+      <p>Total music score: 30 points (after averaging).<br>Overall, a high Music score comes from blending technique with musicality, although scores may drop if a corps employs harder music than they can achieve effectively. Balance is key!</p>
+      <div class="divider"></div>
+    </section>
+    <section class="main-section" id="Calculation_Formula">
+      <header>Calculation Formula</header>
+      <div class="code"><code>def calculate_total_score(ge_music, ge_visual, visual_prof, visual_analysis, color_guard, brass, music_analysis, percussion):<br><br>
+
+          general_effect = ge_music + ge_visual <br><br>
+
+          visual = (visual_prof + visual_analysis + color_guard) / 2 <br><br>
+
+          music = (brass + music_analysis + percussion) / 2<br><br>
+
+          total_score = general_effect + visual + music return round(total_score, 2)<br><br>
+
+          print(calculate_total_score(18.5, 19.0, 17.5, 18.0, 18.2, 18.8, 19.1, 18.5))</code></div>
+      <p>Applying this formula allows all of the different judges to combine their scores to effectively judge the proficiency of a group out of 100 points. In the case of the code above, the final score of the combined captions would be 92.55.</p>
+      <div class="divider"></div>
+    </section>
+    <section class="main-section" id="Penalties_&_Deductions">
+      <header>Penalties & Deductions</header>
+      <p>Penalties are applied for infractions, including:</p>
+      <ul class="bulletlist">
+        <li>Timing Violations – Late start or finish (-0.1 per 3 seconds).</li>
+        <li>Boundary Violations – Stepping out of bounds (-0.5 per instance).</li>
+        <li>Unauthorized Electronics – Non-compliant sound (-2.0 deduction).</li>
+      </ul>
+      <p>Penalties can significantly impact scores and must be avoided if a group wants to perform well competitively.</p>
+      <div class="divider"></div>
+    </section>
+    <section class="main-section" id="Prop_Implementation">
+      <header>Prop Implementation</header>
+      <p>Since the 2010s, props have become an integral part of DCI shows, affecting scores in multiple captions:</p>
+      <ul class="bulletlist">
+        <li>General Effect: Props enhance storytelling, immersion, and audience engagement.</li>
+        <li>Visual Analysis: Well-integrated props contribute to seamless transitions and effective staging.</li>
+        <li>Visual Proficiency: Ability to navigate through different height props creates difficult simultaneous responsibility and is rewarded.</li>
+      </ul>
+      <p>When used effectively, props elevate scores and provide new avenues to tell a story.</p>
+      <div class="divider"></div>
+    </section>
+    <section class="main-section" id="Ranking_&_Tie-Breakers">
+      <header>Ranking & Tie-Breakers</header>
+      <p>If two corps have the same final score, ties are broken using:</p>
+      <ol class="numberedlist">
+        <li>Highest General Effect Score as the first tiebreaker.</li>
+        <li>Highest Music Score as the second tiebreaker.</li>
+        <li>Highest Visual Score as the final tiebreaker.</li>
+      </ol>
+      <div class="code"><code>def determine_winner(scores):<br>
+          scores.sort(key=lambda x: (x['total_score'], x['general_effect'], x['music'], x['visual']), reverse=True)
+          return scores[0]<br><br>
+
+          # Example Usage<br>
+          corps_scores = [<br>
+          {"name": "Corps A", "total_score": 92.5, "general_effect": 38.0, "music": 27.5, "visual": 27.0},<br>
+          {"name": "Corps B", "total_score": 92.5, "general_effect": 37.5, "music": 28.0, "visual": 27.0},<br>
+          {"name": "Corps C", "total_score": 91.8, "general_effect": 38.0, "music": 27.0, "visual": 26.8}<br>
+          ]<br><br>
+
+          winner = determine_winner(corps_scores)<br>
+          print(f"Winner: {winner['name']}")</code></div>
+      <p>Ties are uncommon but resolved using key caption scores.</p>
+      <div class="divider"></div>
+    </section>
+    <section class="main-section" id="Score_Normalization">
+      <header>Score Normalization</header>
+      <div class="code"><code>def normalize_score(score, max_score=100):<br>
+          return round((score / max_score) * 100, 2) <br><br>
+
+          # Example Usage<br>
+          print(normalize_score(95.35)) # Converts raw score to percentage</code></div>
+      <p>This function normalizes a given score to a percentage of a specified maximum, facilitating easy comparison across different scoring scales and ensuring consistency in performance evaluations.</p>
+      <div class="divider"></div>
+    </section>
+    <section class="main-section" id="Caption_Awards">
+      <header>Caption Awards</header>
+      <p>DCI presents caption awards for:</p>
+      <ul class="bulletlist">
+        <li>Best General Effect – Corps with the highest GE score.</li>
+        <li>Best Visual Performance – Top visual performance.</li>
+        <li>Best Color Guard – Highest Color Guard score.</li>
+        <li>Best Music Performance – Best combined Music scores.</li>
+        <li>Best Percussion – Highest percussion score.</li>
+      </ul>
+      <p>Note that caption awards are distributed based off the 3-night average caption score between Prelims, Semis and Finals. </p>
+      <div class="divider"></div>
+    </section>
+    <section class="main-section" id="Data_&_Score_Logging">
+      <header>Data & Score Logging</header>
+      <div class="code"><code>{ <br>
+          "corps_name": "Blue Devils", <br>
+          "scores": { <br>
+          "GE": 39.7, <br>
+          "Visual": 28.9, <br>
+          "Music": 30.1, <br>
+          "Total": 98.975 <br>
+          }, <br>
+          "penalties": 0<br>
+          }</code></div>
+      <p>This is the standard way of formatting final competition data before posting using industry standard tools such as CompetitionSuite.</p>
+      <div class="divider"></div>
+    </section>
+    <section class="main-section" id="Historical_Trends">
+      <header>Historical Trends</header>
+      <p>Recent DCI World Championship winning scores:</p>
+      <ul class="bulletlist">
+        <li>2024 – 98.750 (Bluecoats)</li>
+        <li>2023 – 98.975 (Blue Devils)</li>
+        <li>2022 – 98.750 (Blue Devils)</li>
+        <li>2019 – 98.325 (Blue Devils)</li>
+        <li>2018 – 98.625 (Santa Clara Vanguard)</li>
+      </ul>
+      <p>DCI scores have become increasingly competitive, with recent champions scoring near perfection. As of recently, the Blue Devils out of Concord California have just had their 3-year win streak broken by the Canton Bluecoats.</p>
+      <div class="divider"></div>
+    </section>
+    <section class="main-section" id="Successful_Strategies">
+      <header>Successful Strategies</header>
+      <p>Factors that contribute to a winning DCI performance:</p>
+      <ul class="bulletlist">
+        <li>Consistency – Flawless execution across all captions.</li>
+        <li>Artistic Innovation – Unique storytelling and design.</li>
+        <li>Execution – Precision in marching and playing.</li>
+        <li>Audience Engagement – Effective use of emotions and design.</li>
+        <li>Percussion & Brass Coordination – Strong interplay between sections.</li>
+      </ul>
+      <p>Winning performances excel in execution, design, and engagement, while being able to seamlessly transition between phrases and ideas.</p>
+    </section>
+  </main>
+</body>
+
+</html>
