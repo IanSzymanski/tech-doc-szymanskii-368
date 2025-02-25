@@ -11,9 +11,7 @@
   padding: 0;
   font-style: normal;
   line-height: normal;
-}
-
-  -webkit-font-smoothing: antialiased;
+  text-decoration: none;
 }
 
 p,
@@ -47,7 +45,7 @@ body {
   background: var(--Wenge, #332e2d);
 }
 
-#navbar header {
+#navbar header, {
   font-size: 3rem;
   font-weight: 700;
   line-height: 101.178%;
@@ -78,8 +76,8 @@ li {
 #navbar {
   position: fixed;
   min-width: 20rem;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   width: 20.125rem;
   height: 100%;
   border-right: 3px solid var(--Thistle, #ddcad9);
@@ -101,7 +99,7 @@ li {
   border-right: none;
   padding: 1rem;
   border-bottom: solid 1px;
-  text-decoration: none;
+  
 }
 
 .nav-link:hover {
@@ -134,7 +132,6 @@ li {
 
 @media (max-width: 700px) {
    #navbar {
-    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
