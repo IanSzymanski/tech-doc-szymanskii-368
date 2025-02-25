@@ -97,6 +97,8 @@ li {
   color: var(--White, #fff0fc);
   display: block;
   border: 3px solid var(--Thistle, #ddcad9);
+  border-left: none;
+  border-right: none;
   padding: 1rem;
   border-bottom: solid 1px;
   text-decoration: none;
@@ -137,7 +139,6 @@ li {
     left: 0;
     width: 100%;
     height: 10rem;
-    border-right: none;
     border-bottom: 3px solid var(--Thistle, #ddcad9);
     z-index: 9999;
   }
